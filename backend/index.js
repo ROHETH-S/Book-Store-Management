@@ -12,6 +12,12 @@ import cors from 'cors'
 
 const app=express();
 
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'https://book-store-management.vercel.app');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
 //middleware for parsing request body(in isomnia we check)
 app.use(express.json());
 
